@@ -93,13 +93,11 @@ namespace Atbashs
             {
                 warning = "ULTRA ALERT!";
             }
-            string finalMessage = ($"\n{text} \n\n{warning}\n\nthe score of the message is {score}");
+            string finalMessage = ($"\n{text} \n\n{warning}\n\nthe danger score of the message is {score}");
             Console.WriteLine(finalMessage );
         }
         static void Main(string[] args)
         {
-            string[] dd = { "f", "h", "e" };
-            Message(dd, 5);
         }
     }
 }
