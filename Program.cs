@@ -45,14 +45,9 @@ namespace Atbashs
             {
                 if (atbash.ContainsKey(char.ToLower(c)))
                 {
-                    if (char.IsUpper(c))
-                    {
-                        decrypted += char.ToUpper(atbash[char.ToLower(c)]);
-                    }
-                    else
-                    {
-                        decrypted += atbash[c];
-                    }
+                   
+                        decrypted += atbash[char.ToLower(c)];
+                    
                     
                 }
                 else
@@ -70,9 +65,11 @@ namespace Atbashs
             int total = 0;
             foreach (string word in DecryptedText)
             {
+            
                 if (WordsToFind.Contains(word))
                 {
-                    total += 1;
+                    
+                    total ++;
                 }
             }
             return total;
@@ -98,11 +95,13 @@ namespace Atbashs
         }
         static void Main(string[] args)
         {
-            string originalMessage = "Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.\r\nGsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo.\r\nYlnyh szev yvvm kozxvw mvzi pvb olxzgrlmh.\r\nMfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm.\r\nGsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt.\r\nDv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg.\r\nErxglib rh mvzi. Hgzb ivzwb.\r\n";
+            string originalMessage = "Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb. \n Gsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo. \n Ylnyh szev yvvm kozxvw mvzi pvb olxzgrlmh. \n Mfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm. \n Gsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt. \n Dv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg. \n Erxglib rh mvzi. Hgzb ivzwb.\r\n";
             string[] decryptedMessage = Decrypted(originalMessage);
-            string[] dangerWords = { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            string[] dangerWords = { "bomb", "nukhba", "fighter", "rocket", "secret" ,"bombs","fighters"};
             int dangerPoints = DangerLevel(decryptedMessage, dangerWords);
             Message(decryptedMessage, dangerPoints);
+            
+            
         }
     }
 }
