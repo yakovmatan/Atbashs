@@ -77,8 +77,29 @@ namespace Atbashs
             }
             return total;
         }
+        static void Message(string[] decryptedText, int score)
+        {
+            string text = string.Join(" ", decryptedText);
+            string warning = "";
+            if (score >= 5)
+            {
+                warning = "WARNING!";
+            }
+            else if (score > 5 && score <= 10) 
+            {
+                warning = "DANGER!";
+            }
+            else if (score > 10 && score <= 15)
+            {
+                warning = "ULTRA ALERT!";
+            }
+            string finalMessage = ($"\n{text} \n\n{warning}\n\nthe score of the message is {score}");
+            Console.WriteLine(finalMessage );
+        }
         static void Main(string[] args)
         {
+            string[] dd = { "f", "h", "e" };
+            Message(dd, 5);
         }
     }
 }
