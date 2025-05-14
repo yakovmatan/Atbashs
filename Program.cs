@@ -77,11 +77,24 @@ namespace Atbashs
             }
             return total;
         }
-
-        static void test(string[] str ,int s)
+        static void Message(string[] decryptedText, int score)
         {
-            Console.WriteLine(string.Join(" ",str));
-            Console.WriteLine(s);
+            string text = string.Join(" ", decryptedText);
+            string warning = "";
+            if (score <= 5)
+            {
+                warning = "WARNING!";
+            }
+            else if (score > 5 && score <= 10) 
+            {
+                warning = "DANGER!";
+            }
+            else if (score > 10 && score <= 15)
+            {
+                warning = "ULTRA ALERT!";
+            }
+            string finalMessage = ($"\n{text} \n\n{warning}\n\nthe danger score of the message is {score}");
+            Console.WriteLine(finalMessage );
         }
         static void Main(string[] args)
         {
@@ -89,7 +102,7 @@ namespace Atbashs
             string[] decryptedMessage = Decrypted(originalMessage);
             string[] dangerWords = { "bomb", "nukhba", "fighter", "rocket", "secret" };
             int dangerPoints = DangerLevel(decryptedMessage, dangerWords);
-            test(decryptedMessage, dangerPoints);
+            Message(decryptedMessage, dangerPoints);
         }
     }
 }
